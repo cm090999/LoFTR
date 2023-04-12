@@ -86,10 +86,12 @@ if __name__ == '__main__':
     else:
         raise ValueError('Cannot specify more than two integers for --resize')
 
-    if torch.cuda.is_available():
-        device = 'cuda' 
-    else:
-        raise RuntimeError("GPU is required to run this demo.")
+    # if torch.cuda.is_available():
+    #     device = 'cuda' 
+    # else:
+    #     raise RuntimeError("GPU is required to run this demo.")
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
 
     # Initialize LoFTR
     matcher = LoFTR(config=default_cfg)
